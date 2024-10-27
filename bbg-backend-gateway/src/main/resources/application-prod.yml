@@ -1,0 +1,52 @@
+# Nacos帮助文档: https://nacos.io/zh-cn/docs/concepts.html
+spring:
+  cloud:
+    nacos:
+      discovery:
+        username: ${NACOS_USERNAME}
+        password: ${NACOS_PASSWD}
+        server-addr: ${NACOS_ADDRESS}
+        namespace: public
+    gateway:
+      routes:
+        - id: bbg-backend-user-service
+          uri: lb://bbg-backend-user-service
+          predicates:
+            - Path=/api/user/**
+        - id: bbg-backend-app-service
+          uri: lb://bbg-backend-app-service
+          predicates:
+            - Path=/api/app/**
+        - id: bbg-backend-file-service
+          uri: lb://bbg-backend-file-service
+          predicates:
+            - Path=/api/file/**
+        - id: bbg-backend-question-service
+          uri: lb://bbg-backend-question-service
+          predicates:
+            - Path=/api/question/**
+        - id: bbg-backend-scoring-service
+          uri: lb://bbg-backend-scoring-service
+          predicates:
+            - Path=/api/scoringResult/**
+        - id: bbg-backend-answer-service
+          uri: lb://bbg-backend-answer-service
+          predicates:
+            - Path=/api/userAnswer/**
+  application:
+    name: bbg-backend-gateway
+  main:
+    web-application-type: reactive
+server:
+  port: 8101
+knife4j:
+  gateway:
+    # ① 第一个配置，开启gateway聚合组件
+    enabled: true
+    # ② 第二行配置，设置聚合模式采用discover服务发现的模式
+    strategy: discover
+    discover:
+      # ③ 第三行配置，开启discover模式
+      enabled: true
+      # ④ 第四行配置，聚合子服务全部为Swagger2规范的文档
+      version: swagger2

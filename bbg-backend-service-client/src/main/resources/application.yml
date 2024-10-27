@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        username: ${NACOS_USERNAME}
+        password: ${NACOS_PASSWD}
+        server-addr: ${NACOS_ADDRESS}
+        namespace: public
