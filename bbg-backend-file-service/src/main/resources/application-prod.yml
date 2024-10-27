@@ -112,3 +112,5 @@ cos:
 ai:
   apiKey: ${DASHSCOPE_API_KEY}
   model: ${DASHSCOPE_MODEL}
+knife4j:
+  enable: true
