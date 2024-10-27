@@ -84,8 +84,13 @@
         <!-- https://doc.xiaominfo.com/docs/quick-start#openapi2 -->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
-            <version>4.4.0</version>
+            <version>4.3.0</version>
         </dependency>
         <!-- https://cloud.tencent.com/document/product/436/10199-->
         <dependency>
@@ -136,12 +141,6 @@
             <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
             <version>5.2.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
-            <version>4.3.0</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
         <dependency>
             <groupId>org.apache.commons</groupId>

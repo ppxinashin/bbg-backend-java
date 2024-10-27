@@ -34,7 +34,7 @@ import static com.jeholppx.bbgbackenduserservice.service.impl.UserServiceImpl.SA
  * @date 2024/10/14 19:00
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/")
 @Slf4j
 public class UserController {
 
