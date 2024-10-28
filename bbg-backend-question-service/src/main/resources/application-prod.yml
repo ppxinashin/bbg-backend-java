@@ -11,12 +11,9 @@ spring:
   application:
     name: bbg-backend-question-service
   cloud:
-    nacos:
+      nacos:
       discovery:
-        username: ${NACOS_USERNAME}
-        password: ${NACOS_PASSWD}
-        server-addr: ${NACOS_ADDRESS}
-        namespace: public
+        server-addr: nacos:8848
   # 支持 swagger3
   mvc:
     pathmatch:
@@ -30,9 +27,9 @@ spring:
   # 数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${MYSQL_JDBC_URL}
-    username: ${MYSQL_USERNAME}
-    password: ${MYSQL_PASSWD}
+    url: jdbc:mysql://154.9.252.219:13306/bbg
+    username: bbg
+    password: iKcS462jjp2MPbmW
   shardingsphere:
     #数据源配置
     datasource:
@@ -41,9 +38,9 @@ spring:
       master:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: ${MYSQL_JDBC_URL}
-        username: ${MYSQL_USERNAME}
-        password: ${MYSQL_PASSWD}
+        url: jdbc:mysql://154.9.252.219:13306/bbg
+        username: bbg
+        password: iKcS462jjp2MPbmW
     # 规则配置
     rules:
       sharding:
@@ -67,10 +64,9 @@ spring:
   # 需替换配置，然后取消注释
   redis:
     database: 0
-    host: ${REDIS_HOST}
-    port: ${REDIS_PORT}
+    host: redis
+    port: 6379
     timeout: 5000
-    password: ${REDIS_PASSWD}
   # 文件上传
   servlet:
     multipart:
@@ -87,7 +83,7 @@ mybatis-plus:
       logic-not-delete-value: 0 # 逻辑未删除值（默认为 0）
 # 通义千问API
 ai:
-  apiKey: ${DASHSCOPE_API_KEY}
-  model: ${DASHSCOPE_MODEL}
+  apiKey: sk-d749b0af4eec4b0a9f7e6ca41fa0a7f2
+  model: qwen-plus
 knife4j:
   enable: true
