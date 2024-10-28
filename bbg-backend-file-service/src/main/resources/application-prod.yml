@@ -17,9 +17,6 @@ spring:
         password: ${NACOS_PASSWD}
         server-addr: ${NACOS_ADDRESS}
         namespace: public
-  # 默认 dev 环境
-  profiles:
-    active: dev
   # 支持 swagger3
   mvc:
     pathmatch:
