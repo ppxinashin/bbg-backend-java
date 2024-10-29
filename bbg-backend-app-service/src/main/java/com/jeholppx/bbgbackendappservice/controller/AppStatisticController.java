@@ -1,7 +1,7 @@
 package com.jeholppx.bbgbackendappservice.controller;
 
 
-import com.jeholppx.bbgbackendappservice.mapper.UserAnswerMapper;
+import com.jeholppx.bbgbackendappservice.mapper.AppMapper;
 import com.jeholppx.bbgbackendcommon.common.BaseResponse;
 import com.jeholppx.bbgbackendcommon.common.ErrorCode;
 import com.jeholppx.bbgbackendcommon.common.ResultUtils;
@@ -28,7 +28,7 @@ import java.util.List;
 public class AppStatisticController {
 
     @Resource
-    private UserAnswerMapper userAnswerMapper;
+    private AppMapper appMapper;
 
     /**
      * 热门应用排行统计
@@ -37,7 +37,7 @@ public class AppStatisticController {
      */
     @GetMapping("/answer_count")
     public BaseResponse<List<AppAnswerCountDTO>> getAppAnswerCount() {
-        return ResultUtils.success(userAnswerMapper.doAppAnswerCount());
+        return ResultUtils.success(appMapper.doAppAnswerCount());
     }
 
     /**
@@ -49,6 +49,6 @@ public class AppStatisticController {
     @GetMapping("/answer_result_count")
     public BaseResponse<List<AppAnswerResultCountDTO>> getAppAnswerResultCount(Long appId) {
         ThrowUtils.throwIf(appId == null || appId <= 0, ErrorCode.PARAMS_ERROR);
-        return ResultUtils.success(userAnswerMapper.doAppAnswerResultCount(appId));
+        return ResultUtils.success(appMapper.doAppAnswerResultCount(appId));
     }
 }

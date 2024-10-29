@@ -1,0 +1,97 @@
+version: '3'
+services:
+  bbg-backend-gateway:
+    container_name: bbg-backend-gateway
+    build:
+      context: ./bbg-backend-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8101:8101"
+    networks:
+      - mynetwork
+
+  bbg-backend-user-service:
+    container_name: bbg-backend-user-service
+    build:
+      context: ./bbg-backend-user-service
+      dockerfile: Dockerfile
+    ports:
+      - "8102:8102"
+    networks:
+      - mynetwork
+    depends_on:
+      - bbg-backend-gateway
+
+  bbg-backend-app-service:
+    container_name: bbg-backend-app-service
+    build:
+      context: ./bbg-backend-app-service
+      dockerfile: Dockerfile
+    ports:
+      - "8103:8103"
+    networks:
+      - mynetwork
+    depends_on:
+      - bbg-backend-user-service
+      - bbg-backend-gateway
+
+  bbg-backend-question-service:
+    container_name: bbg-backend-question-service
+    build:
+      context: ./bbg-backend-question-service
+      dockerfile: Dockerfile
+    ports:
+      - "8104:8104"
+    networks:
+      - mynetwork
+    depends_on:
+      - bbg-backend-user-service
+      - bbg-backend-app-service
+      - bbg-backend-gateway
+
+  bbg-backend-scoring-service:
+    container_name: bbg-backend-scoring-service
+    build:
+      context: ./bbg-backend-scoring-service
+      dockerfile: Dockerfile
+    ports:
+      - "8105:8105"
+    networks:
+      - mynetwork
+    depends_on:
+      - bbg-backend-user-service
+      - bbg-backend-app-service
+      - bbg-backend-gateway
+
+  bbg-backend-answer-service:
+    container_name: bbg-backend-answer-service
+    build:
+      context: ./bbg-backend-answer-service
+      dockerfile: Dockerfile
+    ports:
+      - "8106:8106"
+    networks:
+      - mynetwork
+    depends_on:
+      - bbg-backend-user-service
+      - bbg-backend-app-service
+      - bbg-backend-question-service
+      - bbg-backend-scoring-service
+      - bbg-backend-gateway
+
+  bbg-backend-file-service:
+    container_name: bbg-backend-file-service
+    build:
+      context: ./bbg-backend-file-service
+      dockerfile: Dockerfile
+    ports:
+      - "8107:8107"
+    networks:
+      - mynetwork
+    depends_on:
+      - bbg-backend-user-service
+      - bbg-backend-gateway
+
+# 网络，不定义的话就是默认网络
+networks:
+  mynetwork:

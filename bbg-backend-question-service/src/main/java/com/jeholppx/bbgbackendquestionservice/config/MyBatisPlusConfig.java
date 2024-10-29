@@ -1,4 +1,4 @@
-package com.jeholppx.bbgbackendcommon.config;
+package com.jeholppx.bbgbackendquestionservice.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @author https://github.com/liyupi
  */
 @Configuration
-@MapperScan("**.mapper")
+@MapperScan("com.jeholppx.bbgbackendquestionservice.mapper")
 public class MyBatisPlusConfig {
 
     /**
