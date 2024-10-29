@@ -31,7 +31,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://mysql:3306/bbg
-    username: bbg
+    username: root
     password: iKcS462jjp2MPbmW
   shardingsphere:
     #数据源配置
@@ -42,7 +42,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://mysql:3306/bbg
-        username: bbg
+        username: root
         password: iKcS462jjp2MPbmW
     # 规则配置
     rules:
