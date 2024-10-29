@@ -30,7 +30,7 @@ spring:
   # 数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://154.9.252.219:13306/bbg
+    url: jdbc:mysql://mysql:3306/bbg
     username: bbg
     password: iKcS462jjp2MPbmW
   shardingsphere:
@@ -41,7 +41,7 @@ spring:
       master:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://154.9.252.219:13306/bbg
+        url: jdbc:mysql://mysql:3306/bbg
         username: bbg
         password: iKcS462jjp2MPbmW
     # 规则配置
